@@ -1,5 +1,7 @@
-Learn React lifecycle methods by examples.
-Open your browser console to see messages from lifecycel methods.
+Learn React lifecycle methods by examples.<br><br>
+
+Open [https://przemwo.github.io/react-lifecycle-methods/](https://przemwo.github.io/react-lifecycle-methods/) to view the app in the browser.<br>
+Interact withthe app and open your browser console to see messages from lifecycel methods.
 
 ## Available Scripts
 
