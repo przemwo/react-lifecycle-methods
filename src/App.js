@@ -1,19 +1,21 @@
 import React from 'react';
+
 import MyComponent from './MyComponent';
+import getRandomInt from './util/getRandomInt';
 
 class App extends React.Component {
     state = {
         mountMyComponent: true,
-        someProp: new Date(),
-        ignoreProp: new Date(),
+        someProp: getRandomInt(1000),
+        ignoreProp: getRandomInt(1000),
     };
     toggleMountMyComponent = () => {
         this.setState(({ mountMyComponent }) => ({
             mountMyComponent: !mountMyComponent,
         }));
     };
-    updateSomeProp = () => this.setState({ someProp: new Date() });
-    updateIgnoreProp = () => this.setState({ ignoreProp: new Date() });
+    updateSomeProp = () => this.setState({ someProp: getRandomInt(1000) });
+    updateIgnoreProp = () => this.setState({ ignoreProp: getRandomInt(1000) });
     toggleFoo = () => this.setState({ foo: !this.state.foo });
     render() {
         const { mountMyComponent, someProp, ignoreProp } = this.state;

@@ -1,12 +1,14 @@
 import React from 'react';
 
+import getRandomInt from './util/getRandomInt';
 
 class MyComponent extends React.Component {
+    // Lifecycle methods
     constructor(props) {
         super(props);
         this.state = {
             counter: 0,
-            ignore: 'do not re-render when this value change',
+            ignore: getRandomInt(1000),
         };
         console.log('constructor');
     };
@@ -36,19 +38,18 @@ class MyComponent extends React.Component {
         console.log('componentWillUnmount');
         console.log('=================================================');
     };
-    updateLocalState = () => {
-        this.setState(({ counter }) => ({
-            counter: ++counter,
-        }));
-    };
-    updateLocalStateIgnore = () => this.setState({ ignore: 'ignore has been changed'});
     render() {
-        const { counter } = this.state;
+        const { counter, ignore } = this.state;
+        const { someProp, ignoreProp } = this.props;
         console.log('render');
         return (
             <div className="bg-light">
                 <h2>Hello from MyComponent</h2>
-                <p>{ counter }</p>
+                <p>Counter: { counter }</p>
+                <p>Ignore: { ignore }</p>
+                <hr />
+                <p>someProp: { someProp }</p>
+                <p>ignoreProp: { ignoreProp }</p>
                 <button
                     className="btn btn-primary"
                     onClick={this.updateLocalState}
@@ -64,5 +65,12 @@ class MyComponent extends React.Component {
             </div>
         );
     };
+    // Other methods
+    updateLocalState = () => {
+        this.setState(({ counter }) => ({
+            counter: ++counter,
+        }));
+    };
+    updateLocalStateIgnore = () => this.setState({ ignore: getRandomInt(1000) });    
 };
 export default MyComponent;
