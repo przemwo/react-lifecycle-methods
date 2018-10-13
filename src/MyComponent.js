@@ -16,10 +16,15 @@ class MyComponent extends React.Component {
     }
     shouldComponentUpdate(nextProps, nextState) {
         if(nextState.ignore !== this.state.ignore) {
-            console.log('shouldComponentUpdate: NO');
+            console.log('shouldComponentUpdate: NO, "ignore"');
             console.log('=================================================');
             return false;
         };
+        if(nextProps.ignoreProp !== this.props.ignoreProp) {
+            console.log('shouldComponentUpdate: NO, "ignoreProp"');
+            console.log('=================================================');
+            return false;
+        }
         console.log('shouldComponentUpdate: YES');
         return true;
     };
