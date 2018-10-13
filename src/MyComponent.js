@@ -38,6 +38,15 @@ class MyComponent extends React.Component {
         console.log('componentWillUnmount');
         console.log('=================================================');
     };
+    static getDerivedStateFromProps(props, state) {
+        console.log('getDerivedStateFromProps');
+        return null;
+    }
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log('getSnapshotBeforeUpdate');
+        return null;
+        
+    }
     render() {
         const { counter, ignore } = this.state;
         const { someProp, ignoreProp } = this.props;
