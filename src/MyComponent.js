@@ -38,6 +38,7 @@ class MyComponent extends React.Component {
         console.log('componentWillUnmount');
         console.log('=================================================');
     };
+    // update internal state as the result of changes in props without additional render
     static getDerivedStateFromProps(props, state) {
         console.log('getDerivedStateFromProps');
         return null;
@@ -50,7 +51,7 @@ class MyComponent extends React.Component {
     render() {
         const { counter, ignore } = this.state;
         const { someProp, ignoreProp } = this.props;
-        console.log('render');
+        console.count('render');
         return (
             <div className="bg-light">
                 <h2>Hello from MyComponent</h2>
